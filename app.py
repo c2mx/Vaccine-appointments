@@ -1,8 +1,8 @@
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import os
 
-WEEKDAY_MAP = ['周一', '周二', '周三', '周四', '周五', '周六']
+WEEKDAY_MAP = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
 OUTPUT_FILE = "README.md"
 
 def get_data():
@@ -52,7 +52,8 @@ def convert_to_markdown(data, fetch_time):
 
 def main():
     data = get_data()
-    fetch_time = datetime.now().strftime("%Y年%m月%d日 %H:%M")
+    CST = timezone(timedelta(hours=8))
+    fetch_time = datetime.now(CST).strftime("%Y年%m月%d日 %H:%M （北京时间）")
     md_content = convert_to_markdown(data, fetch_time)
 
     # 添加预约链接
