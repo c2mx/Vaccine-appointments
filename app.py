@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 
 WEEKDAY_MAP = ['周一', '周二', '周三', '周四', '周五', '周六']
-OUTPUT_FILE = "vaccine_schedule.md"
+OUTPUT_FILE = "README.md"
 
 def get_data():
     url = "http://yfzweb.ishequ.net/njf3322/Cl/MobliePreventInfo/searchareatime"
